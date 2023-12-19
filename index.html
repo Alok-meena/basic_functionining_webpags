@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS for links */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('ap.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+        .links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        a {
+            margin: 5px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            background-color: #333;
+            transition: background-color 0.3s ease;
+        }
+        a:nth-child(1) { background-color: #ff5733; } /* Link1 - Number_word */
+        a:nth-child(2) { background-color: #33ff57; } /* Link2 - Form */
+        a:nth-child(3) { background-color: #5733ff; } /* Link3 - Country */
+        a:nth-child(4) { background-color: #ff3333; } /* Link4 - Calculator */
+        a:hover {
+            background-color: #444;
+            color: #fff;
+        }
+        .web-info {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="links">
+        <a href="number_word.html">Number_word</a>
+        <a href="form.html">Form</a>
+        <a href="country.html">Country</a>
+        <a href="calculator.html">Calculator</a>
+    </div>
+    <div class="web-info">
+        <h2>Welcome to Our Website!</h2>
+        <p>Discover the power of web technology with our innovative tools and applications. Explore various functionalities such as converting numbers to words, creating interactive forms, learning about different countries, and performing quick calculations. Start exploring now!</p>
+    </div>
+</body>
+</html>

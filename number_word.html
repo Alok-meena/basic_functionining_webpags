@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number to Word Converter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('w2.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        .converter {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for better readability */
+            padding: 20px;
+            border-radius: 8px;
+        }
+        input[type="number"] {
+            padding: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #result {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <h2>Number to English Word Converter</h2>
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <button onclick="convertToWords()">Convert</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convertToWords() {
+            const number = document.getElementById('numberInput').value;
+            const result = document.getElementById('result');
+            const ones = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+            const teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+            const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+            const scales = ['', 'thousand', 'million', 'billion', 'trillion'];
+
+            function toWords(num) {
+                if (num === 0) return 'zero';
+                let word = '';
+
+                for (let i = 0; num > 0; i++) {
+                    if (num % 1000 !== 0) {
+                        word = convertHundred(num % 1000) + scales[i] + ' ' + word;
+                    }
+                    num = Math.floor(num / 1000);
+                }
+                return word.trim();
+            }
+
+            function convertHundred(num) {
+                let word = '';
+
+                if (num >= 100) {
+                    word += ones[Math.floor(num / 100)] + ' hundred ';
+                    num %= 100;
+                }
+
+                if (num >= 10 && num <= 19) {
+                    word += teens[num - 10];
+                } else if (num >= 20) {
+                    word += tens[Math.floor(num / 10)];
+                    word += ' ' + ones[num % 10];
+                } else {
+                    word += ones[num];
+                }
+                return word;
+            }
+
+            result.textContent = toWords(parseInt(number));
+        }
+    </script>
+</body>
+</html>

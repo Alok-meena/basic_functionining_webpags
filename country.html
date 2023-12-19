@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Country Capital Display</title>
+  <style>
+    body {
+      background-image: url('w3.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+    }
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    select {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 24px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Country Capital</h1>
+    <select id="countrySelect">
+      <option value="default">Select a country</option>
+      <option value="usa">USA</option>
+      <option value="canada">Canada</option>
+      <option value="uk">UK</option>
+      <option value="germany">Germany</option>
+      <option value="france">France</option>
+      <option value="australia">Australia</option>
+      <option value="japan">Japan</option>
+      <option value="brazil">Brazil</option>
+      <option value="india">India</option>
+      <option value="china">China</option>
+      <!-- Add more countries and capitals as needed -->
+    </select>
+    <p id="capitalDisplay"></p>
+  </div>
+
+  <script>
+    document.getElementById('countrySelect').addEventListener('change', function() {
+      const capitalDisplay = document.getElementById('capitalDisplay');
+      const selectedCountry = document.getElementById('countrySelect').value;
+
+      switch (selectedCountry) {
+        case 'usa':
+          capitalDisplay.textContent = 'Washington, D.C.';
+          capitalDisplay.style.color = getRandomColor();
+          break;
+        case 'canada':
+          capitalDisplay.textContent = 'Ottawa';
+          capitalDisplay.style.color = getRandomColor();
+          break;
+        case 'uk':
+          capitalDisplay.textContent = 'London';
+          capitalDisplay.style.color = getRandomColor();
+          break;
+        case 'germany':
+          capitalDisplay.textContent = 'Berlin';
+          capitalDisplay.style.color = getRandomColor();
+          break;
+        case 'france':
+          capitalDisplay.textContent = 'Paris';
+          capitalDisplay.style.color = getRandomColor();
+          break;
+        case 'australia':
+          capitalDisplay.textContent = 'Canberra';
+          capitalDisplay.style.color = getRandomColor();
+          break;
+        case 'japan':
+          capitalDisplay.textContent = 'Tokyo';
+          capitalDisplay.style.color = getRandomColor();
+          break;
+        case 'brazil':
+          capitalDisplay.textContent = 'Brasília';
+          capitalDisplay.style.color = getRandomColor();
+          break;
+        case 'india':
+          capitalDisplay.textContent = 'New Delhi';
+          capitalDisplay.style.color = getRandomColor();
+          break;
+        case 'china':
+          capitalDisplay.textContent = 'Beijing';
+          capitalDisplay.style.color = getRandomColor();
+          break;
+        default:
+          capitalDisplay.textContent = '';
+          capitalDisplay.style.color = '#333';
+      }
+    });
+
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  </script>
+
+</body>
+</html>
